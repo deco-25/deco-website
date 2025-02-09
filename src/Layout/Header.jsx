@@ -3,7 +3,7 @@ import { Logo } from "../assets";
 
 const Header = () => {
   return (
-    <div className="fixed z-[100] flex w-screen justify-between p-10">
+    <div className="z-[100] flex w-screen justify-between p-10 absolute">
       <div className="max-w-[50px] max-h-[50px] overflow-hidden rounded-xl">
         <img src={Logo} width={50} className="scale-150" />
       </div>

@@ -35,7 +35,7 @@ const PeopleRing = () => {
     };
   }, []); // Only runs once on mount
   return (
-    <div className="bg-black w-screen h-[200vh] relative text-white">
+    <div className="bg-[#211b29] w-screen h-[200vh] relative text-white">
       <div
         className="absolute inset-0 bg-center  w-screen ease-linear scale-125"
         style={{

@@ -28,7 +28,7 @@ const Hero = () => {
           <div className="min-w-[5px] min-h-[150px] bg-black"></div>
         </div>
       </div>
-      <div className="absolute bottom-0 z-[50] w-screen min-h-[200px] bg-gradient-to-t from-black to-black/0"></div>
+      <div className="absolute bottom-0 z-[50] w-screen min-h-[200px] bg-gradient-to-t from-[#211b29] to-[#211b29]/0"></div>
     </div>
   );
 };
