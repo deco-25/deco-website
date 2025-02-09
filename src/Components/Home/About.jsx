@@ -3,7 +3,7 @@ import { replay } from "../../assets";
 
 const About = () => {
   return (
-    <div className="bg-black text-white font-playfair font-bold tracking-widest">
+    <div className="bg-[#211b29] text-white font-playfair font-bold tracking-widest">
       <div className="flex justify-center items-center h-screen w-screen ">
         <div className="flex flex-col gap-9">
           <div>

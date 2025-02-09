@@ -8,14 +8,13 @@ import Contacts from "../Components/Home/Contacts";
 
 const Homepage = () => {
   return (
-    <div>
+    <>
       <Hero />
       <About />
       <PeopleRing />
       <Services />
-      <ChooseUs />
       <Contacts />
-    </div>
+    </>
   );
 };
 
