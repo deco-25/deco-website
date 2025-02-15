@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Inner, Outer } from "../../assets";
+import { easeIn } from "framer-motion";
 
 const PeopleRing = () => {
   const [yPos, setYPos] = useState(0);
@@ -42,6 +43,7 @@ const PeopleRing = () => {
           backgroundImage: `url(${Outer})`,
           backgroundRepeat: `no-repeat`,
           rotate: `${yPos}deg`,
+          animation : "easeIn"
         }}
       ></div>
       <div
@@ -50,6 +52,7 @@ const PeopleRing = () => {
           backgroundImage: `url(${Inner})`,
           backgroundRepeat: `no-repeat`,
           rotate: `-${yPos}deg`,
+          animation : "easeIn"
         }}
       ></div>
       <div className="h-full flex justify-center items-center  w-screen z-50 text-white">

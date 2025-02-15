@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import service_details from "../../data/service";
 import ChooseUs from "./ChooseUs";
+import useFallingBarAnimation from "../../hooks/useFallingBarAnimation";
 
 const Services = () => {
+  const [currSliderIndex, setCurrSliderIndex] = useState(0)
+  useFallingBarAnimation('falling-bar')
   return (
     <div className="min-h-screen relative">
       <div
@@ -14,8 +17,8 @@ const Services = () => {
           <h1 className="text-yellow-500 font-playfair text-4xl">
             Where do we go from here?
           </h1>
-          <div>
-            <div className="min-w-[5px] min-h-[150px] bg-black"></div>
+          <div className="mt-10 min-w-[3px] min-h-[150px] bg-black overflow-hidden relative">
+            <div className="min-w-full min-h-full bg-white absolute" id="falling-bar"></div>
           </div>
         </div>
       </div>
@@ -47,10 +50,10 @@ const Services = () => {
           </div>
           <div className="w-[40%] flex justify-center items-center">
             <div className="flex gap-20">
-              <button className="border border-black rounded-full h-[150px] w-[150px] flex justify-center items-center">
+              <button onClick={() => setCurrSliderIndex(prev => prev!=0 && prev-1)} className="border border-black rounded-full h-[150px] w-[150px] flex justify-center items-center">
                 <ArrowRight size={50} className="rotate-180" color="black" />
               </button>
-              <button className="border border-black rounded-full h-[150px] w-[150px] flex justify-center items-center">
+              <button onClick={() => setCurrSliderIndex(prev => (prev+1)%(service_details.length-2))} className="border border-black rounded-full h-[150px] w-[150px] flex justify-center items-center">
                 <ArrowRight size={50} color="black" />
               </button>
             </div>
@@ -62,15 +65,19 @@ const Services = () => {
           >
             {service_details.map((ele, ind) => {
               return (
-                <div className="min-w-[30%] bg-black  flex h-full">
-                  <div className="w-full h-[75vh] flex flex-1 flex-col justify-between p-10 text-3xl font-playfair italic">
-                    <div>
-                      <h1>{ele.no}</h1>
-                    </div>
-                    <div>
-                      <h1>{ele.title}</h1>
+                <div style={{transform : `translateX(-${currSliderIndex * 100}%)`}} className="duration-500 group min-w-[30%] relative overflow-hidden bg-black  flex h-full">
+                  <div className="w-full  h-[75vh] flex flex-1 flex-col justify-between p-10 text-3xl font-playfair italic">
+                    <div className="z-10 absolute -bottom-40 group-hover:bottom-0 duration-500 left-0 right-0 px-5">
+                      <div>
+                        <h1>{ele.title}</h1>
+                      </div>
+                      <div className="mt-8">
+                        <h1 className="max-w-full font-sans text-2xl min-h-40">{ele.description}</h1>
+                      </div>
                     </div>
                   </div>
+
+                  <div className="z-[5] min-w-full absolute left-0 right-0 -bottom-[100%] group-hover:-bottom-0 duration-1000 min-h-full bg-gradient-to-b from-purple-700 to-purple-900"></div>
                 </div>
               );
             })}
