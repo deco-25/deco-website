@@ -38,29 +38,38 @@ const PeopleRing = () => {
   return (
     <div className="bg-[#211b29] w-screen h-[200vh] relative text-white">
       <div
-        className="absolute inset-0 bg-center  w-screen ease-linear scale-125"
+        className="absolute inset-0 bg-center  w-screen ease-linear scale-125 max-sm:scale-[30%]"
         style={{
           backgroundImage: `url(${Outer})`,
           backgroundRepeat: `no-repeat`,
           rotate: `${yPos}deg`,
-          animation : "easeIn"
+          animation: "easeIn",
         }}
       ></div>
       <div
-        className="absolute inset-0 bg-center  w-screen ease-linear scale-125"
+        className="absolute inset-0 bg-center w-screen ease-linear scale-125 max-sm:scale-[30%]"
         style={{
           backgroundImage: `url(${Inner})`,
           backgroundRepeat: `no-repeat`,
           rotate: `-${yPos}deg`,
-          animation : "easeIn"
+          animation: "easeIn",
         }}
       ></div>
       <div className="h-full flex justify-center items-center  w-screen z-50 text-white">
         <div className="w-1/3 text-2xl font-poppins text-center">
-          <p>As we grow, we remain committed to</p>
-          <p>innovation, client satisfaction, integrity,</p>
-          <p>excellence, and adaptability, values that</p>
-          <p>drive every project</p>
+          <p className="max-sm:hidden">As we grow, we remain committed to</p>
+          <p className="max-sm:hidden">
+            innovation, client satisfaction, integrity,
+          </p>
+          <p className="max-sm:hidden">
+            excellence, and adaptability, values that
+          </p>
+          <p className="max-sm:hidden">drive every project</p>
+          <p className="max-sm:text-sm">
+            As we grow, we remain committed to innovation, client satisfaction,
+            integrity, excellence, and adaptability, values that drive every
+            project
+          </p>
         </div>
       </div>
     </div>
